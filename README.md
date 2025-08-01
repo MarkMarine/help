@@ -1,6 +1,6 @@
-# LocalHelp - Intelligent Command Line Assistant
+# Help - Intelligent Command Line Assistant
 
-LocalHelp is an AI-powered command line tool that helps you understand and execute command line tools. It combines man page documentation with AI intelligence to provide contextual assistance and safe command execution.
+Help is an AI-powered command line tool that helps you understand and execute command line tools. It combines man page documentation with AI intelligence to provide contextual assistance and safe command execution.
 
 ## Features
 
@@ -18,14 +18,14 @@ LocalHelp is an AI-powered command line tool that helps you understand and execu
 1. **Clone and build:**
    ```bash
    git clone <repository-url>
-   cd localhelp
+   cd Help
    zig build
    ```
 
 2. **Install locally:**
    ```bash
    zig build install
-   # Binary will be created at zig-out/bin/localhelp
+   # Binary will be created at zig-out/bin/help
    ```
 
 3. **Make available system-wide (choose one method):**
@@ -39,7 +39,7 @@ LocalHelp is an AI-powered command line tool that helps you understand and execu
    **Option B: Symlink to ~/.local/bin (user-only):**
    ```bash
    mkdir -p ~/.local/bin
-   ln -sf "$(pwd)/zig-out/bin/localhelp" ~/.local/bin/help
+   ln -sf "$(pwd)/zig-out/bin/help" ~/.local/bin/help
    # Add ~/.local/bin to PATH if not already there:
    echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc  # or ~/.zshrc
    source ~/.bashrc  # or restart your shell
@@ -47,14 +47,14 @@ LocalHelp is an AI-powered command line tool that helps you understand and execu
 
    **Option C: Copy to system directory:**
    ```bash
-   sudo cp zig-out/bin/localhelp /usr/local/bin/help
+   sudo cp zig-out/bin/help /usr/local/bin/help
    # Static copy - you'll need to repeat after rebuilding
    ```
 
    **Option D: Add project directory to PATH:**
    ```bash
    echo 'export PATH="'$(pwd)'/zig-out/bin:$PATH"' >> ~/.bashrc  # or ~/.zshrc
-   echo 'alias help="'$(pwd)'/zig-out/bin/localhelp"' >> ~/.bashrc
+   echo 'alias help="'$(pwd)'/zig-out/bin/help"' >> ~/.bashrc
    source ~/.bashrc  # or restart your shell
    ```
 
@@ -85,7 +85,7 @@ help tar 'extract a specific file from an archive'
 
 ## Configuration
 
-LocalHelp uses environment variables for configuration:
+Help uses environment variables for configuration:
 
 ### API Provider Setup
 
@@ -103,7 +103,7 @@ export LOCALHELP_MODEL=anthropic/claude-3.5-sonnet  # Optional
 
 #### macOS Keychain Integration
 
-On macOS, LocalHelp can securely store and retrieve API keys from the system keychain, eliminating the need to store sensitive keys in environment variables or shell profiles.
+On macOS, Help can securely store and retrieve API keys from the system keychain, eliminating the need to store sensitive keys in environment variables or shell profiles.
 
 **Store your API key in keychain:**
 ```bash
@@ -268,7 +268,7 @@ alias h='help'
 
 ### Safety Features
 
-LocalHelp includes several safety features:
+Help includes several safety features:
 
 - **Confirmation prompts** - Always asks before executing commands
 - **Command explanation** - Shows what the command will do
@@ -277,7 +277,7 @@ LocalHelp includes several safety features:
 
 ### Response Format
 
-LocalHelp provides structured responses:
+Help provides structured responses:
 
 ```
 🤖 AI Assistant Response:
@@ -310,13 +310,13 @@ Run this command? (y/N):
 - Make sure you completed the installation step 3 (system-wide setup)
 - Check if the symlink exists: `ls -la /usr/local/bin/help` or `ls -la ~/.local/bin/help`
 - Verify PATH includes the installation directory: `echo $PATH`
-- Try running with full path: `./zig-out/bin/localhelp`
+- Try running with full path: `./zig-out/bin/help`
 - For ~/.local/bin, ensure it's in your PATH: `export PATH="$HOME/.local/bin:$PATH"`
 
 **"Permission denied" during installation**
 - For /usr/local/bin: Use `sudo` for the symlink command
 - For ~/.local/bin: No sudo needed, but ensure the directory exists
-- Check file permissions: `ls -la zig-out/bin/localhelp`
+- Check file permissions: `ls -la zig-out/bin/help`
 
 **"No man page found"**
 - The command might not be installed on your system
@@ -359,8 +359,8 @@ Requirements:
 - Zig 0.15.0-dev.936 or later
 
 ```bash
-git clone <repository-url>
-cd localhelp
+git clone [<repository-url>](https://github.com/MarkMarine/help)
+cd help
 zig build
 ```
 
@@ -377,13 +377,12 @@ LOCALHELP_LLM_PROVIDER=simulation zig build run -- git reset 'test query'
 ### Project Structure
 
 ```
-localhelp/
+help/
 ├── src/
 │   ├── main.zig          # CLI entry point
 │   └── root.zig          # Core logic and LLM integration
 ├── build.zig             # Build configuration
 ├── build.zig.zon         # Package manifest
-├── CLAUDE.md             # Development documentation
 └── README.md             # This file
 ```
 
