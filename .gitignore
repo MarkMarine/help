@@ -1,0 +1,32 @@
+# Zig build artifacts
+.zig-cache/
+zig-out/
+
+# IDE files
+.idea/
+*.iml
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Claude Code settings
+.claude/settings.local.json
+
+# Temporary files
+*.tmp
+src/tmp
+
+# Environment files
+.env
+.env.local
+
+# Debug files
+*.pdb
+core
+
+CLAUDE.md
