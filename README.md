@@ -17,7 +17,7 @@ Help is an AI-powered command line tool that helps you understand and execute co
 
 1. **Clone and build:**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/MarkMarine/help/tree/master
    cd Help
    zig build
    ```
